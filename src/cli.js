@@ -3,7 +3,7 @@
 const yargs = require("yargs");
 
 const usageText = "\nUsage: necrocss <command> [options]";
-let necroCLI = yargs
+yargs
   .scriptName("necrocss")
   .usage(usageText)
   .command(
