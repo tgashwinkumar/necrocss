@@ -67,16 +67,15 @@ module.exports.watchConfig = (input_file_path, output_file_path) => {
   getOutputCSS(inputCSS);
 };
 
-// eslint-disable-next-line no-unused-vars
 const getOutputCSS = async(inputCSS) => {
   console.log(process.env.NECROCSS_INPUT);
   console.log(process.env.NECROCSS_OUTPUT);
   try{
-  let result = await postcss([plugin()]).process(`a{color:black;}`, {
+  let result = await postcss([plugin()]).process(inputCSS, {
       from: undefined,
     });
   fs.writeFileSync( process.env.NECROCSS_OUTPUT,result.css);
   }catch(err){
-    console.log(err.line);
+    console.log(err);
   }
 };
