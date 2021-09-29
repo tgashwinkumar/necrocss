@@ -1,5 +1,5 @@
 {
-  "name": "postcss-necrocss",
+  "name": "necrocss",
   "version": "0.0.0",
   "description": "PostCSS plugin that acts as a CSS library/framework",
   "keywords": [
@@ -13,8 +13,14 @@
     "necrocss": "./src/cli.js"
   },
   "scripts": {
-    "test": "jest --coverage && eslint ."
+    "test": "jest --coverage && eslint .",
+    "size": "var t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   },
+  "files": [
+    "src/index.js",
+    "src/utils/Sizes",
+    "src/utils/Colors"
+  ],
   "author": "tgashwinkumar <tgashwinkumar@gmail.com>",
   "license": "MIT",
   "repository": "tgashwinkumar/postcss-necrocss",
@@ -64,6 +70,9 @@
     }
   },
   "dependencies": {
+    "@necrocss/colors": "file:src/utils/Colors",
+    "@necrocss/sizes": "file:src/utils/Sizes",
+    "sass-loader": "^12.1.0",
     "yargs": "^15.4.1"
   }
 }

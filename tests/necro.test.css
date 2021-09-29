@@ -1,0 +1,9 @@
+@necrocss base;
+@necrocss utilities;
+@necrocss components;
+
+@media (min-width: 768px) {
+  .sm\:h-screen-1\/2 {
+      height: 50vh;
+  }
+}
