@@ -70,8 +70,8 @@
     }
   },
   "dependencies": {
-    "@necrocss/colors": "file:src/utils/Colors",
-    "@necrocss/sizes": "file:src/utils/Sizes",
+    "@necrocss/colors": "file:src/Colors",
+    "@necrocss/sizes": "file:src/Sizes",
     "sass-loader": "^12.1.0",
     "yargs": "^15.4.1"
   }

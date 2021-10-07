@@ -42,11 +42,9 @@ const writeConfigFile = () => {
 
 module.exports.watchConfig = (input_file_path, output_file_path) => {
   process.env.NECROCSS_INPUT =
-    input_file_path ||
-    path.relative(process.cwd(), "necro.css");
+    input_file_path || path.relative(process.cwd(), "necro.css");
   process.env.NECROCSS_OUTPUT =
-    output_file_path ||
-    path.relative(process.cwd(), "necro.output.css");
+    output_file_path || path.relative(process.cwd(), "necro.output.css");
   process.env.NECROCSS_CONFIG = path.join(process.cwd(), "necrocss.config.js");
   if (!fs.existsSync(process.env.NECROCSS_CONFIG)) {
     console.log(
@@ -67,15 +65,15 @@ module.exports.watchConfig = (input_file_path, output_file_path) => {
   getOutputCSS(inputCSS);
 };
 
-const getOutputCSS = async(inputCSS) => {
+const getOutputCSS = async (inputCSS) => {
   console.log(process.env.NECROCSS_INPUT);
   console.log(process.env.NECROCSS_OUTPUT);
-  try{
-  let result = await postcss([plugin()]).process(inputCSS, {
+  try {
+    let result = await postcss([plugin()]).process(inputCSS, {
       from: undefined,
     });
-  fs.writeFileSync( process.env.NECROCSS_OUTPUT,result.css);
-  }catch(err){
+    fs.writeFileSync(process.env.NECROCSS_OUTPUT, result.css);
+  } catch (err) {
     console.log(err);
   }
 };

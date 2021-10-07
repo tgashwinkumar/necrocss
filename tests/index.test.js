@@ -11,6 +11,7 @@ async function run(input, output, opts = {}) {
     });
     // console.log(result.css);
    fs.writeFileSync(path.join(__dirname, "necro.out.css"), result.css);
+    console.log(result.root);
     await expect(result.css).toEqual(output);
     await expect(result.warnings()).toHaveLength(0);
   } catch (e) {

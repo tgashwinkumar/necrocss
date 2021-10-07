@@ -41,18 +41,18 @@ module.exports.generateColorObject = (colorText) => {
 
 /**
  * Returns the rgb string from given values
- * @param {[String, Number]} r 
- * @param {[String, Number]} g 
- * @param {[String, Number]} b 
+ * @param {[String, Number]} r
+ * @param {[String, Number]} g
+ * @param {[String, Number]} b
  * @returns {String} Returns the rgb string
  */
-module.exports.rgb = (r, g, b) =>{
+module.exports.rgb = (r, g, b) => {
   return `rgb(${r}, ${g}, ${b})`;
 };
 
 /**
  * Returns the hex string from given hex code
- * @param {String} hexcode 
+ * @param {String} hexcode
  * @returns {String} Returns the hex string
  */
 module.exports.hex = (hexcode) => {

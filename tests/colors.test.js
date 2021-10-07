@@ -1,4 +1,4 @@
-const { generateColorObject } = require("../src/utils/Colors/colorsLib");
+const { generateColorObject } = require("@necrocss/colors");
 
 it("should return a color object", () => {
   expect(generateColorObject("#ffffff")).toEqual({

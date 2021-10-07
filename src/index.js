@@ -1,6 +1,8 @@
-const path = require("path");
-const fs = require("fs");
-
+// const path = require("path");
+// const fs = require("fs");
+const loadBasePlugin = require("./Base/loadBasePlugin");
+const loadUtiltiesPlugin = require("./Utilities/loadUtiltiesPlugin");
+const { UnidentifiedPluginError } = require("./Errors/errorLibs");
 // eslint-disable-next-line no-unused-vars
 module.exports = (opts = {}) => {
   // Work with options here
@@ -11,17 +13,12 @@ module.exports = (opts = {}) => {
       return {
         Once(root) {
           root.walkAtRules("necrocss", (rule) => {
-            if (rule.params.includes("base")) {
-              let baseCSS = path.join(__dirname, "Base", "base.css");
-              if(fs.existsSync(baseCSS)) {
-                let base = fs.readFileSync(baseCSS,{encoding: "utf8"});
-                root.prepend(base);
-              }
-            } else if (rule.params.includes("utilities")) {
-              
-            // eslint-disable-next-line no-empty
-            } else if (rule.params.includes("components")) {
-
+            if (rule.params.trim() === "Base") {
+              root = loadBasePlugin(root);
+            } else if (rule.params.trim() === "Utilities") {
+              root = loadUtiltiesPlugin(root);
+            } else {
+              throw new UnidentifiedPluginError(rule.params);
             }
             rule.remove();
           });
