@@ -46,6 +46,7 @@
     "*.js": "eslint --fix"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "parserOptions": {
       "ecmaVersion": 2017
     },
@@ -72,6 +73,7 @@
   "dependencies": {
     "@necrocss/colors": "file:src/Colors",
     "@necrocss/sizes": "file:src/Sizes",
+    "babel-eslint": "^10.1.0",
     "sass-loader": "^12.1.0",
     "yargs": "^15.4.1"
   }

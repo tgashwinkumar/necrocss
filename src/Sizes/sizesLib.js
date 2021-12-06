@@ -40,34 +40,34 @@ module.exports.SizesByRem = {
   192: "48rem",
 };
 
-module.exports.SizesByVW = {
-  "screen-full": "100vw",
-  "screen-1\\/2": "50vw",
-  "screen-1\\/3": "33.33333vw",
-  "screen-2\\/3": "66.66667vw",
-  "screen-1\\/4": "25vw",
-  "screen-3\\/4": "75vw",
-  "screen-1\\/5": "20vw",
-  "screen-2\\/5": "40vw",
-  "screen-3\\/5": "60vw",
-  "screen-4\\/5": "80vw",
-  "screen-1\\/6": "16.66667vw",
-  "screen-5\\/6": "83.33333vw",
+module.exports.SizesByScreen = {
+  "screen-full": "100",
+  "screen-1\\/2": "50",
+  "screen-1\\/3": "33.33333",
+  "screen-2\\/3": "66.66667",
+  "screen-1\\/4": "25",
+  "screen-3\\/4": "75",
+  "screen-1\\/5": "20",
+  "screen-2\\/5": "40",
+  "screen-3\\/5": "60",
+  "screen-4\\/5": "80",
+  "screen-1\\/6": "16.66667",
+  "screen-5\\/6": "83.33333",
 };
 
-module.exports.SizesByVH = {
-  "screen-full": "100vh",
-  "screen-1\\/2": "50vh",
-  "screen-1\\/3": "33.33333vh",
-  "screen-2\\/3": "66.66667vh",
-  "screen-1\\/4": "25vh",
-  "screen-3\\/4": "75vh",
-  "screen-1\\/5": "20vh",
-  "screen-2\\/5": "40vh",
-  "screen-3\\/5": "60vh",
-  "screen-4\\/5": "80vh",
-  "screen-1\\/6": "16.66667vh",
-  "screen-5\\/6": "83.33333vh",
+module.exports.SizesByPercent = {
+  full: "100",
+  "1\\/2": "50",
+  "1\\/3": "33.33333",
+  "2\\/3": "66.66667",
+  "1\\/4": "25",
+  "3\\/4": "75",
+  "1\\/5": "20",
+  "2\\/5": "40",
+  "3\\/5": "60",
+  "4\\/5": "80",
+  "1\\/6": "16.66667",
+  "5\\/6": "83.33333",
 };
 
 module.exports.MediaQueries = {
@@ -79,15 +79,13 @@ module.exports.MediaQueries = {
 };
 
 module.exports.inPX = (sizeInPx) => {
-    return `${sizeInPx}px`;
-}
+  return `${sizeInPx}px`;
+};
 
 module.exports.inREM = (sizeInREM) => {
-    return `${sizeInREM}rem`;
-}
+  return `${sizeInREM}rem`;
+};
 
 module.exports.inPercent = (sizeInPercent) => {
-    return `${sizeInPercent}%`;
-}   
-
-
+  return `${sizeInPercent}%`;
+};

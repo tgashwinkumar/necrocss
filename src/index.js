@@ -1,7 +1,7 @@
 // const path = require("path");
 // const fs = require("fs");
 const loadBasePlugin = require("./Base/loadBasePlugin");
-const loadUtiltiesPlugin = require("./Utilities/loadUtiltiesPlugin");
+const loadUtiltiesPlugin = require("./loadUtiltiesPlugin");
 const { UnidentifiedPluginError } = require("./Errors/errorLibs");
 // eslint-disable-next-line no-unused-vars
 module.exports = (opts = {}) => {

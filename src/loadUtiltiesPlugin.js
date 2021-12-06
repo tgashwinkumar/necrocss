@@ -5,6 +5,7 @@ const { AtRule, Rule, Declaration } = require("postcss");
 
 module.exports = (root) => {
   root = loadSizingTags(root);
+  console.log(root);
   // root = loadColorBasedTags(root);
   return root;
 };
@@ -18,17 +19,17 @@ const loadSizingTags = (root) => {
     for (const [tagKey, tagValue] of Object.entries(sizingTags)) {
       for (const [sizeKey, sizeValue] of Object.entries(SizesByRem)) {
         let rule = new Rule({
-          selector: `${
+          selector: `.${
             mediaKey === "" ? "" : `${mediaKey}\\:`
-          }.${tagKey}-${sizeKey}`,
+          }${tagKey}-${sizeKey}`,
         }).append(
           new Declaration({ prop: `${tagValue}`, value: `${sizeValue}` })
         );
         media.append(rule);
         rule = new Rule({
-          selector: `${
+          selector: `.${
             mediaKey === "" ? "" : `${mediaKey}\\:`
-          }.-${tagKey}-${sizeKey}`,
+          }-${tagKey}-${sizeKey}`,
         }).append(
           new Declaration({ prop: `${tagValue}`, value: `-${sizeValue}` })
         );
@@ -49,19 +50,31 @@ const loadColorBasedTags = (root) => {
       for (const [colorKey, colorValue] of Object.entries(Colors)) {
         if (typeof colorValue === "string") {
           let rule = new Rule({
-            selector: `${
+            selector: `.${
               mediaKey === "" ? "" : `${mediaKey}\\:`
-            }.${tagKey}-${colorKey}`,
+            }${tagKey}-${colorKey}`,
           }).append(
             new Declaration({ prop: `${tagValue}`, value: `${colorValue}` })
           );
           media.append(rule);
         } else if (typeof colorValue === "object") {
-          // pass
+          for (const [subColorKey, subColorValue] of Object.entries(
+            colorValue
+          )) {
+            let rule = new Rule({
+              selector: `.${
+                mediaKey === "" ? "" : `${mediaKey}\\:`
+              }${tagKey}-${colorKey}-${subColorKey}`,
+            }).append(
+              new Declaration({ prop: `${tagValue}`, value: `${subColorKey}` })
+            );
+            media.append(rule);
+          }
         }
       }
     }
-    root.append(media);
+    console.log(root);
+    // root.append(media);
   }
 };
 
